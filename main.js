@@ -8,11 +8,37 @@
 const app = Vue.createApp({
   data(){
     return{
-      firstName: 'Caio',
-      lastName: 'Duarte',
-      email: 'caio.duarte@gmail.com',
-      city: 'Cajamar',
-      picture: 'https://randomuser.me/api/portraits/men/57.jpg'
+      listContacts: [
+        {
+          firstName: 'Andre',
+          lastName: 'Luiz',
+          email: 'andre.luiz@gmail.com',
+          city: 'Caratinga',
+          picture: 'https://randomuser.me/api/portraits/men/57.jpg',
+        },
+        {
+          firstName: 'Ataliba',
+          lastName: 'Couto',
+          email: 'ataliba@gmail.com',
+          city: 'Barbacena',
+          picture: 'https://randomuser.me/api/portraits/men/56.jpg',
+        },
+        {
+          firstName: 'Francisco',
+          lastName: 'Luiz',
+          email: 'francisco.luiz@gmail.com',
+          city: 'Ipatinga',
+          picture: 'https://randomuser.me/api/portraits/men/55.jpg',
+        },
+        {
+          firstName: 'Claudia',
+          lastName: 'Monica',
+          email: 'claudia@gmail.com',
+          city: 'Governador Valadares',
+          picture: 'https://randomuser.me/api/portraits/men/54.jpg',
+        }
+        
+      ]
     }
   },
   methods: {
