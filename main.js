@@ -34,9 +34,21 @@ const app = Vue.createApp({
           email: 'claudia@gmail.com',
           city: 'Governador Valadares',
           picture: 'https://randomuser.me/api/portraits/men/54.jpg',
-        }
-        
+        } 
       ]
+    }
+  },
+  computed:{
+    listResult(){
+      if(this.searchText){
+        // Procura pelo socntatos
+        return this.listContacts.filter(contact => {
+          return contact.firstName.toLowerCase().includes(this.searchText.toLowerCase());
+        });
+      }else{
+        // Se nao encontrar, retorna todos os contatos
+        return this.listContacts;
+      }
     }
   },
   methods: {
@@ -57,7 +69,7 @@ const app = Vue.createApp({
       let data = await response.json();
 
       // Remover todos os items do array listContacts
-      this.listContacts = []
+      this.listContacts = [];
       
       // console.log(contact);
       
@@ -70,12 +82,12 @@ const app = Vue.createApp({
         contact.city = item.location.city;
         contact.picture = item.picture.large;
 
-        this.listContacts.push(contact)
+        this.listContacts.push(contact);
       })
 
     }
   }
-})
+});
 
 // o método mount, fica monitorando e gerenciando o conteudo de app
 // que criamos na index
