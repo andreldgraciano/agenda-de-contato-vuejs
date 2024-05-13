@@ -1,7 +1,3 @@
-
-
-
-
 // criando a instancia do Vue, que é um objeto e a partir dela 
 // conseguimos montar a aplicação. Agora ja temos acesso a todas
 // as ferramentas disponiveis no framework Vue
@@ -57,7 +53,24 @@ const app = Vue.createApp({
 
       // Armazenando os dados do json
       let data = await response.json();
-      console.log(data)
+
+      // Remover todos os items do array listContacts
+      this.listContacts = []
+      
+      // console.log(contact);
+      
+      data.results.forEach(item =>{
+        var contact = new Object();
+
+        contact.firstName = item.name.first;
+        contact.lastName = item.name.last;
+        contact.email = item.email;
+        contact.city = item.location.city;
+        contact.picture = item.picture.large;
+
+        this.listContacts.push(contact)
+      })
+
     }
   }
 })
