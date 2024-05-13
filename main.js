@@ -4,6 +4,8 @@
 const app = Vue.createApp({
   data(){
     return{
+      searchText: '',
+
       listContacts: [
         {
           firstName: 'Andre',
