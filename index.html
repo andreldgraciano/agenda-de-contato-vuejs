@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agenda de contato</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -11,24 +12,28 @@
     <h1>Agenda de Contatos</h1>
 
     <!-- reatividade -->
-    <input type="text" v-model="searchText" name="" id="" placeholder="Entre com um nome">
-    
-    <button v-on:click="getData()">Get dados</button> <br>
+    <div class="search">
+      <input class="input-search" type="text" v-model="searchText" name="" id="" placeholder="Entre com um nome">
+      
+      <button class="button-search" v-on:click="getData()">Get dados</button> <br>
+    </div>
 
-    <div v-if="listResult.length <= 0">
-      Nenhum contato encontrado!
+    <div class="notice" v-if="listResult.length <= 0">
+      Nenhum contato "{{searchText}}" encontrado!
     </div>
 
     <ul>
       <li v-for="item, index in listResult">
-        <address>
-          <!-- Quando quer utilizar uma propriedade em um atributo, utilizamos v-bind -->
-          <img v-bind:src="item.picture" v-bind:alt="item.firstName"> <br>
-          {{ item.firstName }} {{ item.lastName }} <br>
-          Email: {{ item.email }} <br>
-          Cidade: {{ item.city }} <br>
-        </address>
-        <button v-on:click="(removeContact(index))">Excluir</button>
+        <div class="card">
+          <address>
+            <!-- Quando quer utilizar uma propriedade em um atributo, utilizamos v-bind -->
+            <img class="card-img" v-bind:src="item.picture" v-bind:alt="item.firstName"> <br>
+            {{ item.firstName }} {{ item.lastName }} <br>
+            Email: {{ item.email }} <br>
+            Cidade: {{ item.city }} <br>
+          </address>
+          <button class="button-delete" v-on:click="(removeContact(index))">Excluir</button>
+        </div>
       </li>
     </ul>
   </div>
