@@ -20,14 +20,15 @@
     </div>
 
     <ul>
-      <li v-for="item in listResult">
+      <li v-for="item, index in listResult">
         <address>
           <!-- Quando quer utilizar uma propriedade em um atributo, utilizamos v-bind -->
           <img v-bind:src="item.picture" v-bind:alt="item.firstName"> <br>
           {{ item.firstName }} {{ item.lastName }} <br>
           Email: {{ item.email }} <br>
-          Cidade: {{ item.city }}
+          Cidade: {{ item.city }} <br>
         </address>
+        <button v-on:click="(removeContact(index))">Excluir</button>
       </li>
     </ul>
   </div>

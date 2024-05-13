@@ -84,7 +84,12 @@ const app = Vue.createApp({
 
         this.listContacts.push(contact);
       })
+    },
+    removeContact(index){
+      // console.log('Index do objeto selecionado: ' + index);
 
+      // Excluindo um objeto do index selecionado
+      this.listContacts.splice(index, 1);
     }
   }
 });
