@@ -48,6 +48,16 @@ const app = Vue.createApp({
       this.email = 'fernando.lucas@gmail.com',
       this.city = 'Caratinga',
       this.picture = 'https://randomuser.me/api/portraits/men/56.jpg'
+    },
+    async getData(){
+      let response = await fetch('https://randomuser.me/api/?results=15');
+
+      // Exibindo os dados no console do navegador
+      // console.log(response.json());
+
+      // Armazenando os dados do json
+      let data = await response.json();
+      console.log(data)
     }
   }
 })
