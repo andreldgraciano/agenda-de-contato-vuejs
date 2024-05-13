@@ -15,6 +15,10 @@
     
     <button v-on:click="getData()">Get dados</button> <br>
 
+    <div v-if="listResult.length <= 0">
+      Nenhum contato encontrado!
+    </div>
+
     <ul>
       <li v-for="item in listResult">
         <address>
